@@ -7,8 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+     
     - name: Checkout code
       uses: actions/checkout@v4
-    
+      
+    - name: Print commit hash
+      run: |
+        echo "本次提交的完整 hash 值: ${{ github.sha }}"
+        echo "本次提交的短 hash 值: ${GITHUB_SHA:0:7}"
+  
     - name: Print a message
       run: echo "代码已被推送，工作流执行成功！"
